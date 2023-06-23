@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% assign l = site.data.languages | where: "name", page.language | first -%}
+<html lang="{{ l.htmlLangTag }}">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>{{ page.title }} – {{ site.title }}</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+  {% include nav.html -%}
+  <main>
+    <h1>{{ page.header | default: page.title }}</h1>
+    {{ content -}}
+  </main>
+</body>
+</html>

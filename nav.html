@@ -1,0 +1,13 @@
+<nav>
+  |  
+  {% assign home = site.pages | where: "url", "/" | first -%}
+  {% assign pages = site.html_pages | where_exp:"item","item.url!='/'" | where_exp: "i", "i.hidden != true" | sort: "title" | unshift: home -%}
+  {% for link in pages -%}
+    {% assign steps = link.path | split: "/" | join: " " | number_of_words -%}
+    {% if steps == 1 -%}
+      <a {% if page.url == link.url -%} class="active" {% endif -%}
+          href="{{ link.url }}">{{ link.title -}}
+      </a> | 
+    {% endif -%}
+  {% endfor -%}
+</nav>
