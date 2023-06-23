@@ -1,4 +1,5 @@
-baseurl: /website-test/
+url: "https://soraxem.github.io/website-test/"
+baseurl: "/website-test/"
 defaults:
   - scope:
       path: ""
