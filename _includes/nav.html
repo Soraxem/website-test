@@ -11,3 +11,19 @@
     {% endif -%}
   {% endfor -%}
 </nav>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <!-- Links -->
+    <ul class="navbar-nav">
+      {% for link in pages -%}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ site.baseurl }}{{ link.url }}">{{ link.title -}}</a>
+        </li>
+      {% endfor -%}
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link 1</a>
+      </li>
+    </ul>
+  </div>
+</nav>
