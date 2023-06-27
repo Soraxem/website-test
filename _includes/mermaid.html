@@ -23,4 +23,11 @@ document.querySelectorAll("pre.mermaid, pre>code.language-mermaid").forEach($el 
     "dark" :
     "default" // [3]
 })
+
+
+    for (const element of document.getElementsByClassName("mermaid")) {
+    for (const diagram of element.getElementsByTagName("svg")) {
+        diagram.removeAttribute("height")
+    }
+}
   </script>
