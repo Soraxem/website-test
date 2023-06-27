@@ -6,7 +6,7 @@
     {% assign steps = link.path | split: "/" | join: " " | number_of_words -%}
     {% if steps == 1 -%}
       <a {% if page.url == link.url -%} class="active" {% endif -%}
-          href="{{ link.url }}">{{ link.title -}}
+          href="{{ site.baseurl }}{{ link.url }}">{{ link.title -}}
       </a> | 
     {% endif -%}
   {% endfor -%}
