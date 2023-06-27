@@ -4,7 +4,7 @@
     <ul class="navbar-nav">
       {% for link in site.html_pages -%}
         <li class="nav-item">
-          <a class="nav-link{% if page.url == link.url -%} active{% endif -%}" href="{{ site.baseurl }}{{ link.url }}">{{ link.title -}}</a>
+          <a class="nav-link {% if page.url == link.url -%} active{% endif -%}" href="{{ site.baseurl }}{{ link.url }}">{{ link.title -}}</a>
         </li>
       {% endfor -%}
       <li class="nav-item">
