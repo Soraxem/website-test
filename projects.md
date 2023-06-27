@@ -1,3 +1,8 @@
+---
+title: Projects
+published: true
+---
+
 # Projects
 
 ## Project Lifespan
