@@ -1,19 +1,17 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <a class="navbar-brand" href="#">Samuel Hafen</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <!-- Links -->
-    <ul class="navbar-nav">
-      {% for link in site.html_pages -%}
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Samuel</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        {% for link in site.html_pages -%}
         <li class="nav-item">
           <a class="nav-link {% if page.url == link.url -%} active{% endif -%}" href="{{ site.baseurl }}{{ link.url }}">{{ link.title -}}</a>
         </li>
-      {% endfor -%}
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link 1</a>
-      </li>
-    </ul>
+        {% endfor -%}
+      </ul>
+    </div>
   </div>
 </nav>
