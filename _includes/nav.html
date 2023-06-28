@@ -3,6 +3,11 @@
     <!-- Branding -->
     <a class="navbar-brand" href="#">Samuel</a>
 
+    <!-- Burger button for collapse -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
     <!-- Collabsibel Navbar setup -->
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav me-auto">
@@ -14,16 +19,11 @@
         {% endfor -%}
       </ul>
       <!-- Search form for finding posts -->
-      <form class="d-flex" action="/search.html" method="get">
+      <form class="d-flex" action="{{ site.baseurl }}search.html" method="get">
         <input class="form-control me-2" type="text" placeholder="Search" id="search-box" name="query">
         <input class="btn btn-primary" type="submit" value="Search">
       </form>
     </div>
-
-    <!-- Burger button for collapse -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
     
   </div>
 </nav>
