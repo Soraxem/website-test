@@ -129,6 +129,7 @@ All used applications should be open source, or at least have an open source alt
 | Portable Document Format | .pdf | Documents for print, Archived Documents |
 
 ## Color
+
 | Usage | RAL Color | Hex Color |
 |-------|-----------|-----------|
 | Private Stuff | RAL 4008 | #844C82 |
