@@ -1,22 +1,30 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <div class="container-fluid">
+    <!-- Branding -->
     <a class="navbar-brand" href="#">Samuel</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+
+    <!-- Collabsibel Navbar setup -->
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav me-auto">
+        <!-- Add Navbar Item for every Site -->
         {% for link in site.html_pages -%}
         <li class="nav-item">
           <a class="nav-link {% if page.url == link.url -%} active{% endif -%}" href="{{ site.baseurl }}{{ link.url }}">{{ link.title -}}</a>
         </li>
         {% endfor -%}
       </ul>
+      <!-- Search form for finding posts -->
       <form class="d-flex" action="/search.html" method="get">
         <input class="form-control me-2" type="text" placeholder="Search" id="search-box" name="query">
         <input class="btn btn-primary" type="submit" value="Suchen">
         <button class="btn btn-primary" type="button">Search</button>
       </form>
     </div>
+
+    <!-- Burger button for collapse -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
   </div>
 </nav>
