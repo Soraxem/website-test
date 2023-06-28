@@ -10,7 +10,7 @@ title: "search
 
 <script>
   var searchIndex = [
-    {% for post in site.posts %}
+    {% for post in site.html_pages %}
       {
         "title" : "{{ post.title | escape }}",
         "category" : "{{ post.category }}",
