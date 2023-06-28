@@ -39,6 +39,9 @@ var urlParams = new URLSearchParams(window.location.search);
 
 // Get the value of the "attribute" parameter
 var query = urlParams.get('query');
+if (query === null) {
+  query = "";
+}
 
 // Use the attribute value as needed
 console.log(query);
