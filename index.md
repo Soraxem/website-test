@@ -24,20 +24,10 @@ This is my personal website, here a huge part of my knowledge base is published.
 </ul>
 
 {% assign paths = site.pages | map: "path" -%}
-{% assign step = path | split: "/" -%}
-{% assign step = level.first %}
+{% assign dir = paths.first | split: "/" | first -%}
+{% assign dirs = dir -%}
 {% for path in paths -%}
-	{% assign step = path | split: "/" %}
-	{% assign level = level | append: ";" | append: step.first -%}
-{% endfor -%}
-{{ level }}
-
-{%- liquid
-	assign paths = site.pages | map: "path"
- 	assign dirs = paths.first
-	for path in paths
- 		assign dir = path | split: "/" | first
-		assign dirs = dirs | append: ";" | append: dir
-	endfor
- 	echo dirs
--%}
+	{% assign dir = path | split: "/" | first %}
+ 	{% assign dirs = dirs | append: ";" | append: dir %}
+{% endfor %}
+{{ dirs }}
