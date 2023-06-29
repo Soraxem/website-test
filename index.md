@@ -35,7 +35,7 @@ This is my personal website, here a huge part of my knowledge base is published.
  		{% assign dirs = dirs | append: "~" | append: dir %}
  	{% endif %}
 {% endfor -%}
-
+{{ dirs }}
 
 
 {% assign dir = paths.first | split: "/" | first -%}
