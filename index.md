@@ -26,3 +26,24 @@ This is my personal website, here a huge part of my knowledge base is published.
     </li>
   {% endfor %}
 </ul>
+
+{% assign root = site.pages | where: "path", "/" | first %}
+{% assign topLevelPages = site.pages | where_exp: "page", "page.path != '/'" | sort: "path" %}
+
+<ul>
+  {% for page in topLevelPages %}
+    {% assign pageName = page.path | split: "/" | last %}
+    <li>
+      <a href="{{ site.baseurl }}{{ page.url }}">{{ pageName }}</a>
+      {% assign childPages = site.pages | where_exp: "childPage", "childPage.url != page.url" | where_exp: "childPage", "childPage.path contains page.path" | sort: "path" %}
+      {% if childPages.size > 0 %}
+        <ul>
+          {% for childPage in childPages %}
+            {% assign childPageName = childPage.path | split: "/" | last %}
+            <li><a href="{{ site.baseurl }}{{ childPage.url }}">{{ childPageName }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
