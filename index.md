@@ -7,27 +7,37 @@ title: Home
 This is my personal website, here a huge part of my knowledge base is published. As well as some highlights.
 
 {% for page in site.pages %}
-  {{ page.path }}
-  {% assign path_array = page.path | split: "/" %}
-  <ul>
-  {% for dir in path_array %}
-    <li>{{ dir }}</li>
-  {% endfor %}
-  </ul>
+	{{ page.path }}
+	{% assign path_array = page.path | split: "/" %}
+	<ul>
+	{% for dir in path_array %}
+		<li>{{ dir }}</li>
+	{% endfor %}
+	</ul>
 {% endfor %}
 
 {% assign level = site.pages | map: "path" -%}
 <ul>
-  {% for path in level -%}
-    <li>{{ path }}</li>
-  {% endfor -%}
+	{% for path in level -%}
+		<li>{{ path }}</li>
+	{% endfor -%}
 </ul>
 
 {% assign paths = site.pages | map: "path" -%}
 {% assign step = path | split: "/" -%}
 {% assign step = level.first %}
 {% for path in paths -%}
-  {% assign step = path | split: "/" %}
-  {% assign level = level | append: ";" | append: step.first -%}
+	{% assign step = path | split: "/" %}
+	{% assign level = level | append: ";" | append: step.first -%}
 {% endfor -%}
 {{ level }}
+
+{%- liquid
+	assign paths = site.pages | map: "path"
+ 	assign dirs = paths.first
+	for path in paths
+ 		assign dir = path | split: "/" | first
+		assign dirs = dirs | append: ";" | append: dir
+	endfor
+ 	echo dirs
+-%}
