@@ -24,6 +24,20 @@ This is my personal website, here a huge part of my knowledge base is published.
 </ul>
 
 {% assign paths = site.pages | map: "path" -%}
+
+{% assign dir = paths.first | split: "/" | first | prepend: ";-;" -%}
+{% assign dirs = dir -%}
+
+{% for path in paths -%}
+	{% assign path = path | prepend: ";-;" -%}
+	{% if path contains ";-;" -%}
+ 		{% assign dir = path | split: "/" | first %}
+ 		{% assign dirs = dirs | append: "~" | append: dir %}
+ 	{% endif %}
+{% endfor -%}
+
+
+
 {% assign dir = paths.first | split: "/" | first -%}
 {% assign dirs = dir -%}
 {% for path in paths -%}
