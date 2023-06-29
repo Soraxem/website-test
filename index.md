@@ -26,6 +26,6 @@ This is my personal website, here a huge part of my knowledge base is published.
 {% assign paths = site.pages | map: "path" -%}
 {% assign level = "" -%}
 {% for path in paths -%}
-  {% assign level = level | append: path %} 
+  {% assign level = level | append: ";" | append: path %}
 {% endfor %}
 {{ level }}
