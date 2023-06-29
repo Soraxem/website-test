@@ -82,3 +82,26 @@ This is my personal website, here a huge part of my knowledge base is published.
   {% endfor %}
 </ul>
 
+{% assign root = site.pages | where: "path", "/" | first %}
+{% assign topLevelPages = site.pages | where_exp: "page", "page.path != '/'" | sort: "path" %}
+
+<ul>
+  {% for page in topLevelPages %}
+    {% assign pageName = page.path | split: "/" | last %}
+    <li>
+      <a href="{{ site.baseurl }}{{ page.url }}">{{ pageName }}</a>
+      {% assign childPages = site.pages | where_exp: "childPage", "childPage.url != page.url" | where_exp: "childPage", "childPage.path contains page.path" | sort: "path" %}
+      {% if childPages.size > 0 %}
+        {% include recursive_navigation.html pages=childPages parent=page %}
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+
+{% for page in site.pages %}
+  {{ page.path }}
+  {% assign path_array = page.path | split: "/" %}
+  {% for dir in path_array %}
+    {{ dir }}
+  {% endfor %}
+{% endfor %}
