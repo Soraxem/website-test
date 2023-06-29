@@ -24,8 +24,8 @@ This is my personal website, here a huge part of my knowledge base is published.
 </ul>
 
 {% assign paths = site.pages | map: "path" -%}
-{% assign level = "" -%}
+{% assign level = path | split "/" | first -%}
 {% for path in paths -%}
-  {% assign level = level | append: ";" | append: path %}
-{% endfor %}
+  {% assign level = level | append: ";" | append: path | split "/" -%}
+{% endfor -%}
 {{ level }}
