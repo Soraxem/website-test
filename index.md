@@ -24,10 +24,10 @@ This is my personal website, here a huge part of my knowledge base is published.
 </ul>
 
 {% assign paths = site.pages | map: "path" -%}
-{% assign step = path | split "/" -%}
+{% assign step = path | split: "/" -%}
 {% assign step = level.first %}
 {% for path in paths -%}
-  {% assign step = path | split "/" %}
+  {% assign step = path | split: "/" %}
   {% assign level = level | append: ";" | append: step.first -%}
 {% endfor -%}
 {{ level }}
