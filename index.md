@@ -101,9 +101,9 @@ This is my personal website, here a huge part of my knowledge base is published.
 {% for page in site.pages %}
   {{ page.path }}
   {% assign path_array = page.path | split: "/" %}
+  <ul>
   {% for dir in path_array %}
-    <ul>
-      <li>{{ dir }}</li>
-    </ul>
+    <li>{{ dir }}</li>
   {% endfor %}
+  </ul>
 {% endfor %}
