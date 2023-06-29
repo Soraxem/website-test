@@ -1,10 +1,7 @@
 ---
 layout: default
-title: AAAAAAAAAAA
+title: Home
 ---
-# website-test
+# Hello World!
 
-Hello WOrld
-
-
-THis ist my experiment
+This is my personal website, here a huge part of my knowledge base is published. As well as some highlights.
