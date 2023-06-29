@@ -16,10 +16,16 @@ This is my personal website, here a huge part of my knowledge base is published.
   </ul>
 {% endfor %}
 
-
-{% assign level = site.pages | map: "path" %}
+{% assign level = site.pages | map: "path" -%}
 <ul>
-  {% for path in level %}
+  {% for path in level -%}
     <li>{{ path }}</li>
-  {% endfor %}
+  {% endfor -%}
 </ul>
+
+{% assign paths = site.pages | map: "path" -%}
+{% assign level = "" -%}
+{% for path in paths -%}
+  {% assign level = level | append: path %} 
+{% endfor %}
+{{ level }}
