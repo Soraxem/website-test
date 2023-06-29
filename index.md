@@ -32,7 +32,9 @@ This is my personal website, here a huge part of my knowledge base is published.
 	{% assign pat = path | prepend: ";-;" -%}
 	{% if pat contains ";-;" -%}
  		{% assign dir = pat | split: "/" | first %}
- 		{% assign dirs = dirs | append: "~" | append: dir %}
+ 		{% unless dirs | split: "~" == dirs | append: "~" | append: dir | split: "~" %}
+	 		{% assign dirs = dirs | append: "~" | append: dir %}
+    		{% endunless %}
  	{% endif %}
 {% endfor -%}
 {{ dirs }}
