@@ -29,9 +29,9 @@ This is my personal website, here a huge part of my knowledge base is published.
 {% assign dirs = dir -%}
 
 {% for path in paths -%}
-	{% assign path = path | prepend: ";-;" -%}
-	{% if path contains ";-;" -%}
- 		{% assign dir = path | split: "/" | first %}
+	{% assign pat = path | prepend: ";-;" -%}
+	{% if pat contains ";-;" -%}
+ 		{% assign dir = pat | split: "/" | first %}
  		{% assign dirs = dirs | append: "~" | append: dir %}
  	{% endif %}
 {% endfor -%}
