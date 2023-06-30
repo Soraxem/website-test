@@ -30,21 +30,23 @@ This is my personal website, here a huge part of my knowledge base is published.
 {% assign dir = paths.first | split: "/" | first | prepend: "~" -%}
 {% assign dirs = "" -%}
 
-{% for path in paths -%}
-	{% assign pat = path | prepend: "~" -%}
-	{% if pat contains "~" -%}
- 		{% assign dir = pat | split: "/" | first %}
+<ul>
+{%- for path in paths -%}
+	{%- assign pat = path | prepend: "~" -%}
+	{%- if pat contains "~" -%}
+ 		{%- assign dir = pat | split: "/" | first -%}
 
-		{% assign dirs_array = dirs | split: "~" -%}
-  		{% assign dirs_array_uniq = dirs | append: dir | split: "~" | uniq -%}
+		{%- assign dirs_array = dirs | split: "~" -%}
+  		{%- assign dirs_array_uniq = dirs | append: dir | split: "~" | uniq -%}
 
-		<ul>
- 		{% unless dirs_array == dirs_array_uniq -%}
+		
+ 		{%- unless dirs_array == dirs_array_uniq -%}
 	 		{% assign dirs = dirs | append: dir -%}
 			<li>{{ dir }}</li>
-    		{% endunless -%}
-		</ul>
- 	{% endif -%}
-{% endfor -%}
+    		{%- endunless -%}
+		
+ 	{%- endif -%}
+{%- endfor -%}
+</ul>
 
 ```
