@@ -29,29 +29,18 @@ This is my personal website, here a huge part of my knowledge base is published.
 {% assign dirs = dir -%}
 
 {% for path in paths -%}
-	{% assign pat = path | prepend: ";-;" -%}
-	{% if pat contains ";-;" -%}
+	{% assign pat = path | prepend: "~" -%}
+	{% if pat contains "~" -%}
  		{% assign dir = pat | split: "/" | first %}
-   		{{ dirs | split: "~" }}
 		
      		{{ dirs | split: "~" }}
 		{% assign dirs_array = dirs | split: "~" -%}
-		{{ dirs | append: "~" | append: dir | split: "~" | uniq }}
-  		{% assign dirs_array_uniq = dirs | append: "~" | append: dir | split: "~" | uniq -%}
+		{{ dirs | append: dir | split: "~" | uniq }}
+  		{% assign dirs_array_uniq = dirs | append: dir | split: "~" | uniq -%}
 		
  		{% unless dirs_array == dirs_array_uniq -%}
-	 		{% assign dirs = dirs | append: "~" | append: dir -%}
+	 		{% assign dirs = dirs | append: dir -%}
     		{% endunless -%}
-		{% assign dirs = dirs | append: "~" | append: dir -%}
  	{% endif -%}
 {% endfor -%}
-{{ dirs }}
 
-
-{% assign dir = paths.first | split: "/" | first -%}
-{% assign dirs = dir -%}
-{% for path in paths -%}
-	{% assign dir = path | split: "/" | first %}
- 	{% assign dirs = dirs | append: ";" | append: dir %}
-{% endfor %}
-{{ dirs }}
