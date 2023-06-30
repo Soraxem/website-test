@@ -2,6 +2,7 @@
 	{%- for path in include.paths -%}
 		{%- if path contains include.level -%}
 			{%- assign pat = path | remove_first: include.level | prepend: "~" -%}
+			Path ({{ pat }})
 			{%- assign dir = pat | split: "/" | first -%}
 			{%- assign dirs_array = dirs | split: "~" -%}
 			{%- assign dirs_array_uniq = dirs | append: dir | split: "~" | uniq -%}
