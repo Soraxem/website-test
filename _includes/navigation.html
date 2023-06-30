@@ -11,20 +11,7 @@
 					{{ path | remove_first: include.level | split: "/" | first }}
 					{%- assign dirs_sub = "" -%}
 					{%- if pat contains "/" -%}
-						<ul>
-							{%- for path in paths -%}
-								{%- if path contains "" -%}
-									{%- assign pat = path | remove_first: "index.md" | prepend: "~" -%}
-									{%- assign dir = pat | split: "/" | first -%}
-									{%- assign dirs_array = dirs_sub | split: "~" -%}
-									{%- assign dirs_array_uniq = dirs_sub | append: dir | split: "~" | uniq -%}
-									{%- unless dirs_array == dirs_array_uniq -%}
-										{% assign dirs_sub = dirs_sub | append: dir -%}
-										<li>{{ path | remove_first: "index.md" | split: "/" | first }}</li>
-									{%- endunless -%}		
-								{%- endif -%}
-							{%- endfor -%}
-						</ul>
+						{% include navigation.html paths=include.paths level=path %}
 					{%- endif -%}
 				</li>
 			{%- endunless -%}		
