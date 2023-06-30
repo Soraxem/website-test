@@ -6,8 +6,6 @@ title: Home
 
 This is my personal website, here a huge part of my knowledge base is published. As well as some highlights.
 
-```liquid
-
 {% for page in site.pages %}
 	{{ page.path }}
 	{% assign path_array = page.path | split: "/" %}
@@ -48,5 +46,3 @@ This is my personal website, here a huge part of my knowledge base is published.
  	{%- endif -%}
 {%- endfor -%}
 </ul>
-
-```
