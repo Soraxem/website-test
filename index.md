@@ -91,7 +91,7 @@ This is my personal website, here a huge part of my knowledge base is published.
 				{%- assign dirs_sub = "" -%}
 				<ul>
 				{%- for path in paths -%}
-					{%- if path contains dir -%}
+					{%- if path contains "" -%}
 						{%- assign pat = path | remove_first: level | prepend: "~" -%}
 						{%- assign dir = pat | split: "/" | first -%}
 						{%- assign dirs_array = dirs_sub | split: "~" -%}
