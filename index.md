@@ -35,7 +35,7 @@ This is my personal website, here a huge part of my knowledge base is published.
 
 <ul>
 {%- for path in paths -%}
-	{%- if pat contains level -%}
+	{%- if path contains level -%}
 		{%- assign pat = path | remove: level | prepend: "~" -%}
 		{%- if pat contains "~" -%}
 			{%- assign dir = pat | split: "/" | first -%}
