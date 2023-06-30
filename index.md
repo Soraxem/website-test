@@ -92,7 +92,7 @@ This is my personal website, here a huge part of my knowledge base is published.
 				<ul>
 				{%- for path in paths -%}
 					{%- if path contains "projects/" -%}
-						{%- assign pat = path | remove_first: level | prepend: "~" -%}
+						{%- assign pat = path | remove_first: "projects/" | prepend: "~" -%}
 						{%- assign dir = pat | split: "/" | first -%}
 						{%- assign dirs_array = dirs_sub | split: "~" -%}
 						{%- assign dirs_array_uniq = dirs_sub | append: dir | split: "~" | uniq -%}
