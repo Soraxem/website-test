@@ -49,3 +49,24 @@ This is my personal website, here a huge part of my knowledge base is published.
 	{%- endif -%}
 {%- endfor -%}
 </ul>
+
+
+{% assign paths = site.pages | map: "path" -%}
+{%- assign level = "projects/standarts/" -%}
+
+{%- assign dirs = "" -%}
+
+<ul>
+{%- for path in paths -%}
+	{%- if path contains level -%}
+		{%- assign pat = path | remove: level | prepend: "~" -%}
+		{%- assign dir = pat | split: "/" | first -%}
+		{%- assign dirs_array = dirs | split: "~" -%}
+		{%- assign dirs_array_uniq = dirs | append: dir | split: "~" | uniq -%}
+		{%- unless dirs_array == dirs_array_uniq -%}
+			{% assign dirs = dirs | append: dir -%}
+			<li href="{{ path }}">{{ dir }}</li>
+		{%- endunless -%}		
+	{%- endif -%}
+{%- endfor -%}
+</ul>
