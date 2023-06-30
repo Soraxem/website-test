@@ -12,7 +12,8 @@ This is my personal website, here a huge part of my knowledge base is published.
 	{%- assign dir = paths.first | split: "/" | first | prepend: "~" -%}
 	{%- assign dirs = "" -%}
 
-	<ul>
+<ul>
+	
 	{%- for path in paths -%}
 		{%- assign pat = path | prepend: "~" -%}
 		{%- if pat contains "~" -%}
@@ -29,4 +30,4 @@ This is my personal website, here a huge part of my knowledge base is published.
 		
  		{%- endif -%}
 	{%- endfor -%}
-	</ul>
+</ul>
