@@ -7,7 +7,7 @@ title: Home
 This is my personal website, here a huge part of my knowledge base is published. As well as some highlights.
 
 
-{%- assign paths = site.pages | map: "path" -%}
+{% assign paths = site.pages | map: "path" %}
 
 {%- assign dir = paths.first | split: "/" | first | prepend: "~" -%}
 {%- assign dirs = "" -%}
