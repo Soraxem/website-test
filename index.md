@@ -33,7 +33,8 @@ This is my personal website, here a huge part of my knowledge base is published.
 	{% if pat contains ";-;" -%}
  		{% assign dir = pat | split: "/" | first %}
    		{{ dirs | split: "~" }}
-     		{{ dirs | append: "~" | append: dir | split: "~" }} 
+     		{{ dirs | append: "~" | append: dir | split: "~" }}
+		{{ dirs | append: "~" | append: dir | split: "~" | uniq }}
  		{% unless dirs | split: "~" == dirs | append: "~" | append: dir | split: "~" | uniq %}
 	 		{% assign dirs = dirs | append: "~" | append: dir %}
     		{% endunless %}
