@@ -10,6 +10,9 @@
 		{%- endif -%}
 	{%- endfor -%}
 
+</ul>
+</ul>
+	
 	{%- for path in include.paths -%}
 		{%- if path contains include.level -%}
 			{%- assign pat = path | remove_first: include.level | prepend: "~" -%}
