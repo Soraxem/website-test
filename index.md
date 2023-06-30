@@ -171,7 +171,7 @@ This is my personal website, here a huge part of my knowledge base is published.
 				{{ path | remove_first: level | split: "/" | first }}
 				{%- assign dirs_sub = "" -%}
 
-				{%- unless pat contains "/" -%}
+				{%- if pat contains "/" -%}
 					<ul>
 					{%- for path in paths -%}
 						{%- if path contains "index.md" -%}
@@ -186,7 +186,7 @@ This is my personal website, here a huge part of my knowledge base is published.
 						{%- endif -%}
 					{%- endfor -%}
 					</ul>
-				{%- endunless -%}
+				{%- endif -%}
 			</li>
 		{%- endunless -%}		
 	{%- endif -%}
