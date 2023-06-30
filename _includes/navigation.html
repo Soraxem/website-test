@@ -8,7 +8,7 @@
 			{%- unless dirs_array == dirs_array_uniq -%}
 				{% assign dirs = dirs | append: dir -%}
 				<li>
-					{{ path | remove_first: include.level | split: "/" | first }} ({{ path }}) ({{ include.level | append: pat | remove: "~" }})
+					{{ path | remove_first: include.level | split: "/" | first }} ({{ path }}) ({{ include.level | append: pat | remove: "~" | split: "/" | first | append: "/" }})
 					{%- assign dirs_sub = "" -%}
 					{%- if pat contains "/" -%}
 						{% assign new_level = include.level | append: pat %}
