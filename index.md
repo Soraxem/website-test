@@ -193,5 +193,5 @@ This is my personal website, here a huge part of my knowledge base is published.
 </ul>
 
 
-
-{% include navigation.html paths=paths level="projects/" %}
+{% assign paths = site.pages | map: "path" -%}
+{% include navigation.html paths=paths level="" %}
