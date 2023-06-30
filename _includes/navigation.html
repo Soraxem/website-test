@@ -1,18 +1,4 @@
 <ul class="navigation">
-	<li>Paths: {{ include.paths }}</li>
-	<li>Level: {{ include.level }}</li>
-
-	{%- for path in include.paths -%}
-		{%- if path contains include.level -%}
-			{%- assign pat = path | remove_first: level | prepend: "~" -%}
-			<li>{{ path }}</li>
-			<li>{{ pat }}</li>
-		{%- endif -%}
-	{%- endfor -%}
-
-</ul>
-<ul>
-	
 	{%- for path in include.paths -%}
 		{%- if path contains include.level -%}
 			{%- assign pat = path | remove_first: include.level | prepend: "~" -%}
