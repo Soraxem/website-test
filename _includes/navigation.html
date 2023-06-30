@@ -1,6 +1,6 @@
 <ul class="navigation">
-	<li>Paths: {{ paths }}</li>
-	<li>Level: {{ level }}</li>
+	<li>Paths: {{ include.paths }}</li>
+	<li>Level: {{ include.level }}</li>
 
 	{%- for path in paths -%}
 		{%- if path contains level -%}
