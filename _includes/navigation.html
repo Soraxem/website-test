@@ -3,7 +3,7 @@
 	{{ level }}
 
 	{%- for path in paths -%}
-		{%- if path contians level -%}
+		{%- if path contains level -%}
 			<li>{{ path }}</li>
 		{%- endif -%}
 	{%- endfor -%}
