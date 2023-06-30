@@ -87,7 +87,7 @@ This is my personal website, here a huge part of my knowledge base is published.
 		{%- unless dirs_array == dirs_array_uniq -%}
 			{% assign dirs = dirs | append: dir -%}
 			<li>
-				{{ dir }}
+				{{ path }}
 				{%- assign dirs_sub = "" -%}
 				<ul>
 				{%- for path in paths -%}
@@ -98,7 +98,7 @@ This is my personal website, here a huge part of my knowledge base is published.
 						{%- assign dirs_array_uniq = dirs_sub | append: dir | split: "~" | uniq -%}
 						{%- unless dirs_array == dirs_array_uniq -%}
 							{% assign dirs_sub = dirs_sub | append: dir -%}
-							<li>{{ dir }}</li>
+							<li>{{ path }}</li>
 						{%- endunless -%}		
 					{%- endif -%}
 				{%- endfor -%}
