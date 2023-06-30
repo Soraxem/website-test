@@ -170,7 +170,6 @@ This is my personal website, here a huge part of my knowledge base is published.
 			<li>
 				{{ path | remove_first: level | split: "/" | first }}
 				{%- assign dirs_sub = "" -%}
-
 				{%- if pat contains "/" -%}
 					<ul>
 					{%- for path in paths -%}
