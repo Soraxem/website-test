@@ -108,3 +108,36 @@ This is my personal website, here a huge part of my knowledge base is published.
 	{%- endif -%}
 {%- endfor -%}
 </ul>
+
+<ul>
+{%- for path in paths -%}
+	{%- if path contains level -%}
+		{%- assign pat = path | remove_first: level | prepend: "~" -%}
+		{%- assign dir = pat | split: "/" | first -%}
+		{%- assign dirs_array = dirs | split: "~" -%}
+		{%- assign dirs_array_uniq = dirs | append: dir | split: "~" | uniq -%}
+		{%- unless dirs_array == dirs_array_uniq -%}
+			{% assign dirs = dirs | append: dir -%}
+			<li>
+				{{ path | remove_first: level | split: "/" | first }}
+				{%- assign dirs_sub = "" -%}
+				<ul>
+				{%- for path in paths -%}
+					{%- if path contains "index.md" -%}
+						{%- assign pat = path | remove_first: "index.md" | prepend: "~" -%}
+						{%- assign dir = pat | split: "/" | first -%}
+						{%- assign dirs_array = dirs_sub | split: "~" -%}
+						{%- assign dirs_array_uniq = dirs_sub | append: dir | split: "~" | uniq -%}
+						{%- unless dirs_array == dirs_array_uniq -%}
+							{% assign dirs_sub = dirs_sub | append: dir -%}
+							<li>{{ path | remove_first: "index.md" | split: "/" | first }}</li>
+						{%- endunless -%}		
+					{%- endif -%}
+				{%- endfor -%}
+				</ul>
+			</li>
+		{%- endunless -%}		
+	{%- endif -%}
+{%- endfor -%}
+</ul>
+
