@@ -13,7 +13,7 @@
 					{%- if pat contains "/" -%}
 						<ul>
 							{%- for path in paths -%}
-								{%- if path contains "index.md" -%}
+								{%- if path contains "" -%}
 									{%- assign pat = path | remove_first: "index.md" | prepend: "~" -%}
 									{%- assign dir = pat | split: "/" | first -%}
 									{%- assign dirs_array = dirs_sub | split: "~" -%}
