@@ -11,3 +11,5 @@ This is my personal website, here a huge part of my knowledge base is published.
 {% include navigation.html paths=paths level="" %}
 <p>second</p>
 {% include navigation.html paths=paths level="projects/" %}
+<p>third</p>
+{% include navigation.html paths=paths level="projects" %}
