@@ -4,7 +4,9 @@
 
 	{%- for path in paths -%}
 		{%- if path contains level -%}
+			{%- assign pat = path | remove_first: level | prepend: "~" -%}
 			<li>{{ path }}</li>
+			<li>{{ pat }}</li>
 		{%- endif -%}
 	{%- endfor -%}
 
