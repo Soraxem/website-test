@@ -25,7 +25,7 @@ This is my personal website, here a huge part of my knowledge base is published.
 
 {% assign paths = site.pages | map: "path" -%}
 
-{% assign dir = paths.first | split: "/" | first | prepend: ";-;" -%}
+{% assign dir = paths.first | split: "/" | first | prepend: "~" -%}
 {% assign dirs = dir -%}
 
 {% for path in paths -%}
