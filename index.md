@@ -35,6 +35,7 @@ This is my personal website, here a huge part of my knowledge base is published.
  		{% unless dirs | split: "~" == dirs | append: "~" | append: dir | split: "~" | uniq %}
 	 		{% assign dirs = dirs | append: "~" | append: dir %}
     		{% endunless %}
+		{% assign dirs = dirs | append: "~" | append: dir %}
  	{% endif %}
 {% endfor -%}
 {{ dirs }}
