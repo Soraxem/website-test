@@ -109,6 +109,13 @@ This is my personal website, here a huge part of my knowledge base is published.
 {%- endfor -%}
 </ul>
 
+
+
+{% assign paths = site.pages | map: "path" -%}
+{%- assign level = "" -%}
+
+{%- assign dirs = "" -%}
+
 <ul>
 {%- for path in paths -%}
 	{%- if path contains level -%}
