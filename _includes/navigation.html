@@ -1,4 +1,6 @@
 <ul class="navigation">
+{{ paths }}
+{{ level }}
 {%- for path in paths -%}
 	{%- if path contains level -%}
 		{%- assign pat = path | remove_first: level | prepend: "~" -%}
