@@ -9,10 +9,14 @@
 			{%- assign dirs_array_uniq = dirs | append: new_level | split: "," | uniq -%}
 			{%- unless dirs_array == dirs_array_uniq -%}
 			<li>
-				{{ page.path | remove_first: include.level | split: "/" | first }} ({{ page.path }})
+				
+				
 				{%- if pat contains "/" -%}
+					{{ page.path | remove_first: include.level | split: "/" | first }}
 					{% assign dirs = dirs | append: new_level | append: "," -%}
 					{% include navigation.html paths=include.paths level=new_level dirs=dirs %}
+				{%- else -%}
+					{{ page.title }}
 				{%- endif -%}
 			</li>
 			{%- endunless -%}
