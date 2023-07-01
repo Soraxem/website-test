@@ -2,12 +2,13 @@
 <ul class="navigation">
 	{%- for path in include.paths -%}
 		{%- if path contains include.level -%}
-			{%- assign pat = path | remove_first: include.level | prepend: "~" -%}
+			{%- assign pat = path | remove_first: include.level -%}
 			<li>
 				{{ path | remove_first: include.level | split: "/" | first }} ({{ path }})
 				{%- if pat contains "/" -%}
-					({{ pat | remove: "~" | split: "/" | first | append: "/" }})
-					{% assign new_pat = pat | remove: "~" | split: "/" | first | append: "/" %}
+					
+					({{ pat | split: "/" | first | append: "/" }})
+					{% assign new_pat = pat | split: "/" | first | append: "/" %}
 					{% assign new_level = include.level | append: new_pat %}
 					{% include navigation.html paths=include.paths level=new_level dirs=dirs %}
 				{%- endif -%}
