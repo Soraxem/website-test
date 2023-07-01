@@ -1,4 +1,9 @@
 {% assign dirs = "" %}
+{{ include.hello | default: "Hello" }}
+{% assign include.hello = "world" %}
+{{ include.hello | default: "Hello" }}
+{% assign include.hello = "Tree" %}
+{{ include.hello | default: "Hello" }}
 <ul class="navigation">
 	{%- for path in include.paths -%}
 		{%- if path contains include.level -%}
