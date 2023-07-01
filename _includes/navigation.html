@@ -11,13 +11,8 @@
 			<li>
 				{{ path | remove_first: include.level | split: "/" | first }} ({{ path }})
 				{%- if pat contains "/" -%}
-					({{ pat | split: "/" | first | append: "/" }})
-					({{ pat | split: "/" | first | append: "/" | prepend: include.level }})
-					
 					{% assign dirs = dirs | append: new_level | append: "," -%}
-					[{{ dirs }}]
 					{% include navigation.html paths=include.paths level=new_level dirs=dirs %}
-					
 				{%- endif -%}
 			</li>
 			{%- endunless -%}
