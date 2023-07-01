@@ -16,7 +16,7 @@
 					{% assign dirs = dirs | append: new_level | append: "," -%}
 					{% include navigation.html paths=include.paths level=new_level dirs=dirs %}
 				{%- else -%}
-					<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+					<li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
 				{%- endif -%}
 			
 			{%- endunless -%}
