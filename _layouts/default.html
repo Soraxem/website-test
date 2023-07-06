@@ -15,7 +15,8 @@
   
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-2 col-lg-3">
+      <div class="col-md-2 col-lg-3 d-none d-md-block d-lg-none"></div>
+      <div class="col-md-2 col-lg-3 d-none d-lg-block">
         {% assign paths = site.html_pages -%}
         {% include navigation.html paths=paths level="" %}
       </div>
