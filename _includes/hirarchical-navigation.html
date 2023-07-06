@@ -19,7 +19,8 @@
 				{%- else -%}
 					{
 						text: "{{- page.title -}}",
-						href: "{{- site.baseurl -}}{{- page.url -}}"
+						href: "{{- site.baseurl -}}{{- page.url -}}",
+						nodes: []
 					},
 				{%- endif -%}
 			{%- endunless -%}
