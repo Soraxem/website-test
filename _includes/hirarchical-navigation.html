@@ -13,7 +13,7 @@
 						nodes: [
 							{%- assign dirs = dirs | append: new_level | append: "," -%}
 							{%- include hirarchical-navigation.html paths=include.paths level=new_level dirs=dirs -%}
-							]
+							],
 					{%- else -%}
 						nodes: [],
 					{%- endif -%}
