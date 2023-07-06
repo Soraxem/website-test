@@ -8,8 +8,7 @@
 			{%- assign dirs_array = dirs | split: "," -%}
 			{%- assign dirs_array_uniq = dirs | append: new_level | split: "," | uniq -%}
 			{%- assign pre_folder = new_level | remove: pat -%}
-			Prefolder: {{ pre_folder }}
-			Filename: {{ pre_folder | split: "/" | last | append: ".html" }}
+			Prefolder: {{ pre_folder | split: "/" | last | append: ".html" | prepend: pre_folder  }}
 			{%- assign folder = include.paths | where: "path", new_level -%}
 			{%- unless dirs_array == dirs_array_uniq -%}
 				{
