@@ -7,9 +7,10 @@
 			{%- assign new_level = include.level | append: new_dir %}
 			{%- assign dirs_array = dirs | split: "," -%}
 			{%- assign dirs_array_uniq = dirs | append: new_level | split: "," | uniq -%}
-			{%- assign pre_folder = new_level | split: "/" | last | append: ".html" | prepend: new_level -%}
+			{%- assign pre_folder = new_level | remove: pat -%}
 			Prefolder: {{ pre_folder }}
-			{%- assign folder = include.paths | where: "url", new_level -%}
+			Filename: {{ pre_folder | split: "/" | last | append: ".html" }}
+			{%- assign folder = include.paths | where: "path", new_level -%}
 			{%- unless dirs_array == dirs_array_uniq -%}
 				{
 					{%- if pat contains "/" -%}
