@@ -10,7 +10,8 @@
 			{%- assign pre_folder = new_level | remove: pat | prepend: "/"  -%}
 			{% comment %}{{#  pre_folder | split: "/" | last | append: ".html" | prepend: pre_folder }}{% endcomment %}
 			{%- assign selector = pre_folder | split: "/" | last | append: ".html" | prepend: pre_folder -%}
-			{%- assign folder = include.paths | where: "url", selector -%}
+			{%- assign selector_rel = selector | remove_first: site.baseurl -%}
+			{%- assign folder = include.paths | where: "url",  -%}
 			{%- unless dirs_array == dirs_array_uniq -%}
 				{
 					{%- if pat contains "/" -%}
