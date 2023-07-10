@@ -12,6 +12,7 @@
 			{%- assign selector = pre_folder | split: "/" | last | append: ".html" | prepend: pre_folder -%}
 			{%- assign selector_rel = site.baseurl | append: selector -%}
 			{%- assign folder = include.paths | where: "url", selector_rel -%}
+			Folders: {{ include.paths }}
 			Folder: {{ folder }} 
 			{%- unless dirs_array == dirs_array_uniq -%}
 				{
