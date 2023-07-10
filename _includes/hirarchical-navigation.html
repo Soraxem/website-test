@@ -11,7 +11,7 @@
 			{% comment %}{{#  pre_folder | split: "/" | last | append: ".html" | prepend: pre_folder }}{% endcomment %}
 			{%- assign selector = pre_folder | split: "/" | last | append: ".html" | prepend: pre_folder -%}
 			{%- assign selector_rel = site.baseurl | append: selector -%}
-			{%- assign folder = include.paths | where: "url", selector_rel -%}
+			{%- assign folder = include.paths | where: "url", selector -%}
 			{%- for link in include.paths -%}
 				Folders: {{ link.url }}
 			{%- endfor -%}
