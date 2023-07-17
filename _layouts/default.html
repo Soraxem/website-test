@@ -28,7 +28,7 @@
       </div>
       <div class="col-md-8 col-lg-6 mt-2 mt-md-4">
         {% capture table %}<table class="table table-hover">{% endcapture %}
-        {{ content | replace: "<table>", table -}}
+        {{ content | replace: "<table>", table | replace: "task-list-item-checkbox", "form-check-input" -}}
       </div>
     </div>
   </div>
