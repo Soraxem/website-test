@@ -22,7 +22,8 @@
         {% include navigation.html paths=paths level="" %}
       </div>
       <div class="col-md-8 col-lg-6 mt-2 mt-md-4">
-        {{ content -}}
+        {% capture table %}<table class="table table-hover">{% endcapture %}
+        {{ content | replace: "<table>", table -}}
       </div>
     </div>
   </div>
