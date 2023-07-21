@@ -30,9 +30,9 @@
       <div class="col-md-8 col-lg-6 mt-2 mt-md-4">
         {% capture table %}<table class="table table-hover">{% endcapture %}
 
-        {% capture code-before %}<div class="highlight">{% endcapture %}
-        {% capture code %}<div class="highlight rounded border">{% endcapture %}
-        {{ content | replace: "<table>", table | replace: "task-list-item-checkbox", "form-check-input" | replace: code-before, code -}}
+        {% capture code-before %}<pre class="highlight">{% endcapture %}
+        {% capture code %}<pre class="highlight rounded border">{% endcapture %}
+        {{ content | replace: "<table>", table | replace: "task-list-item-checkbox", "form-check-input" | replace: code-before, code | replace: "<pre>", code -}}
       </div>
     </div>
   </div>
