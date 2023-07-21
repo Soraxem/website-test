@@ -31,7 +31,7 @@
         {% capture table %}<table class="table table-hover">{% endcapture %}
 
         {% capture code-before %}<div class="highlight">{% endcapture %}
-        {% capture code %}<div class="highlight rounded border" style="padding: 10px; margin: 0px">{% endcapture %}
+        {% capture code %}<div class="highlight rounded border">{% endcapture %}
         {{ content | replace: "<table>", table | replace: "task-list-item-checkbox", "form-check-input" | replace: code-before, code -}}
       </div>
     </div>
